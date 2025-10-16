@@ -1,0 +1,466 @@
+@import '../../styles/variables.scss';
+
+.header {
+  height: $header-height;
+  background: var(--gradient-primary);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $spacing-lg;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  transition: all $transition-base;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 0 $spacing-md;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 0 $spacing-sm;
+  }
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  flex: 1;
+  max-width: 600px;
+
+  @media (max-width: $breakpoint-md) {
+    max-width: 100%;
+  }
+}
+
+.menuBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-sm;
+  border: 1px solid $border-color;
+  background: transparent;
+  color: $text-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-base;
+  font-size: 20px;
+
+  &:hover {
+    background: $hover-bg;
+    border-color: $border-hover;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.searchBar {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: $breakpoint-sm) {
+    display: none;
+  }
+
+  input {
+    width: 100%;
+    height: 40px;
+    background: $input-bg;
+    border: 1px solid $border-color;
+    border-radius: $radius-sm;
+    padding: 0 $spacing-md 0 45px;
+    color: $text-primary;
+    font-size: 14px;
+    transition: all $transition-base;
+
+    &::placeholder {
+      color: $text-tertiary;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $border-hover;
+      background: $card-bg;
+    }
+  }
+
+  &.focused {
+    .searchIcon {
+      color: $text-primary;
+    }
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  left: $spacing-md;
+  color: $text-tertiary;
+  font-size: 18px;
+  pointer-events: none;
+  transition: all $transition-base;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.iconBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-sm;
+  border: 1px solid $border-color;
+  background: transparent;
+  color: $text-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-base;
+  font-size: 18px;
+  position: relative;
+
+  &:hover {
+    background: $hover-bg;
+    border-color: $border-hover;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}
+
+.notificationBtn {
+  .badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: $gradient-accent;
+    color: $white;
+    font-size: 10px;
+    font-weight: 600;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    border: 2px solid $card-bg;
+  }
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 320px;
+  background: $card-bg;
+  border: 1px solid $border-color;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-lg;
+  overflow: hidden;
+  animation: slideDown 0.2s ease;
+  z-index: 1000;
+
+  @media (max-width: $breakpoint-sm) {
+    width: 280px;
+    right: -10px;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownHeader {
+  padding: $spacing-md;
+  border-bottom: 1px solid $border-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0;
+  }
+
+  .count {
+    font-size: 12px;
+    color: $text-tertiary;
+    background: $hover-bg;
+    padding: 4px 8px;
+    border-radius: $radius-sm;
+  }
+}
+
+.notificationList {
+  max-height: 320px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $border-color;
+    border-radius: 2px;
+  }
+}
+
+.notificationItem {
+  padding: $spacing-md;
+  border-bottom: 1px solid $border-color;
+  cursor: pointer;
+  transition: all $transition-base;
+  display: flex;
+  gap: $spacing-sm;
+  position: relative;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: $hover-bg;
+  }
+
+  &.unread {
+    background: $hover-bg;
+
+    .notificationContent h5 {
+      color: $text-primary;
+      font-weight: 600;
+    }
+  }
+}
+
+.notificationContent {
+  flex: 1;
+
+  h5 {
+    font-size: 13px;
+    color: $text-primary;
+    margin: 0 0 4px 0;
+    font-weight: 500;
+  }
+
+  p {
+    font-size: 12px;
+    color: $text-secondary;
+    margin: 0 0 4px 0;
+    line-height: 1.4;
+  }
+
+  .time {
+    font-size: 11px;
+    color: $text-tertiary;
+  }
+}
+
+.unreadDot {
+  width: 8px;
+  height: 8px;
+  background: $gradient-accent;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.dropdownFooter {
+  padding: $spacing-sm;
+  border-top: 1px solid $border-color;
+  background: $hover-bg;
+
+  button {
+    width: 100%;
+    height: 36px;
+    background: transparent;
+    border: 1px solid $border-color;
+    border-radius: $radius-sm;
+    color: $text-primary;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all $transition-base;
+
+    &:hover {
+      background: $card-bg;
+      border-color: $border-hover;
+    }
+  }
+}
+
+.profileBtn {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  background: transparent;
+  border: 1px solid $border-color;
+  border-radius: $radius-sm;
+  padding: 6px 12px 6px 6px;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    background: $hover-bg;
+    border-color: $border-hover;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: 6px;
+  }
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-sm;
+  background: $gradient-accent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  font-size: 16px;
+}
+
+.profileInfo {
+  display: flex;  
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
+
+  .name {
+    font-size: 13px;
+    font-weight: 600;
+    color: $text-primary;
+    line-height: 1.2;
+  }
+
+  .role {
+    font-size: 11px;
+    color: $text-tertiary;
+    line-height: 1.2;
+  }
+}
+
+.profileMenu {
+  width: 240px;
+}
+
+.profileMenuHeader {
+  padding: $spacing-lg;
+  text-align: center;
+  border-bottom: 1px solid $border-color;
+
+  .avatarLarge {
+    width: 60px;
+    height: 60px;
+    border-radius: $radius-sm;
+    background: $gradient-accent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    font-size: 24px;
+    margin: 0 auto $spacing-sm;
+  }
+
+  h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0 0 4px 0;
+  }
+
+  p {
+    font-size: 12px;
+    color: $text-tertiary;
+    margin: 0;
+  }
+}
+
+.menuDivider {
+  height: 1px;
+  background: $border-color;
+  margin: $spacing-xs 0;
+}
+
+.menuItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background: transparent;
+  border: none;
+  color: $text-primary;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all $transition-base;
+  text-align: left;
+
+  svg {
+    font-size: 16px;
+    color: $text-secondary;
+    transition: all $transition-base;
+  }
+
+  &:hover {
+    background: $hover-bg;
+
+    svg {
+      color: $text-primary;
+    }
+  }
+
+  &.logout {
+    color: #ff4444;
+
+    svg {
+      color: #ff4444;
+    }
+
+    &:hover {
+      background: rgba(255, 68, 68, 0.1);
+    }
+  }
+}

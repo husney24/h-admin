@@ -1,0 +1,1306 @@
+@import '../../styles/variables.scss';
+
+.settings {
+  width: 100%;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ==================== PAGE HEADER ====================
+.pageHeader {
+  margin-bottom: $spacing-2xl;
+}
+
+.headerLeft {
+  .titleSection {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    .titleIcon {
+      width: 45px;
+      height: 45px;
+      background: var(--gradient-accent);
+      border-radius: $radius-sm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $white;
+      font-size: 22px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 $spacing-xs 0;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+  }
+}
+
+// ==================== SETTINGS CONTAINER ====================
+.settingsContainer {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: $spacing-2xl;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 200px 1fr;
+    gap: $spacing-lg;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ==================== TABS SIDEBAR ====================
+.tabsSidebar {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  padding: $spacing-md;
+  height: fit-content;
+  position: sticky;
+  top: calc($header-height + $spacing-2xl);
+
+  @media (max-width: $breakpoint-md) {
+    position: static;
+    overflow-x: auto;
+    padding: $spacing-sm;
+
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 2px;
+    }
+  }
+}
+
+.tabsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: row;
+  }
+}
+
+.tabBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: $radius-sm;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all $transition-base;
+  white-space: nowrap;
+
+  svg {
+    font-size: 18px;
+  }
+
+  &:hover {
+    background: var(--hover-bg);
+    color: var(--text-primary);
+  }
+
+  &.active {
+    background: var(--gradient-accent);
+    color: $white;
+    border-color: transparent;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    min-width: 150px;
+
+    span {
+      display: none;
+    }
+
+    svg {
+      margin: 0 auto;
+    }
+  }
+}
+
+// ==================== CONTENT AREA ====================
+.contentArea {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  padding: $spacing-2xl;
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-md;
+  }
+}
+
+.tabContent {
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.sectionHeader {
+  margin-bottom: $spacing-2xl;
+  padding-bottom: $spacing-lg;
+  border-bottom: 1px solid var(--border-color);
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-xs 0;
+  }
+
+  p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+}
+
+// ==================== CARD ====================
+.card {
+  background: var(--hover-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-lg;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &.dangerCard {
+    border-color: rgba(231, 76, 60, 0.3);
+    background: rgba(231, 76, 60, 0.05);
+  }
+}
+
+.cardDescription {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 $spacing-lg 0;
+}
+
+// ==================== PROFILE IMAGE ====================
+.profileImageSection {
+  display: flex;
+  gap: $spacing-2xl;
+  margin-bottom: $spacing-2xl;
+  padding-bottom: $spacing-2xl;
+  border-bottom: 1px solid var(--border-color);
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+}
+
+.imagePreview {
+  width: 120px;
+  height: 120px;
+  border-radius: $radius-sm;
+  overflow: hidden;
+  border: 2px solid var(--border-color);
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.imageActions {
+  flex: 1;
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-xs 0;
+  }
+
+  p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0 0 $spacing-md 0;
+  }
+}
+
+.imageButtons {
+  display: flex;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+}
+
+.uploadBtn,
+.removeBtn {
+  height: 40px;
+  padding: 0 $spacing-lg;
+  border-radius: $radius-sm;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  svg {
+    font-size: 16px;
+  }
+}
+
+.uploadBtn {
+  background: var(--gradient-accent);
+  border: none;
+  color: $white;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.removeBtn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+  }
+}
+
+.urlInput {
+  width: 100%;
+  height: 40px;
+  padding: 0 $spacing-md;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: all $transition-base;
+
+  &::placeholder {
+    color: var(--text-tertiary);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--border-hover);
+  }
+}
+
+// ==================== FORM ====================
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-lg;
+  margin-bottom: $spacing-lg;
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  &.fullWidth {
+    grid-column: 1 / -1;
+  }
+
+  label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 0 $spacing-md;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-primary);
+    font-size: 14px;
+    transition: all $transition-base;
+
+    &::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--border-hover);
+    }
+  }
+
+  input,
+  select {
+    height: 45px;
+  }
+
+  textarea {
+    padding: $spacing-md;
+    resize: vertical;
+    font-family: inherit;
+    min-height: 100px;
+  }
+
+  select {
+    cursor: pointer;
+  }
+}
+
+.formActions {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: flex-end;
+  margin-top: $spacing-lg;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.cancelBtn,
+.saveBtn {
+  height: 45px;
+  padding: 0 $spacing-xl;
+  border-radius: $radius-sm;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  svg {
+    font-size: 16px;
+  }
+}
+
+.cancelBtn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+  }
+}
+
+.saveBtn {
+  background: var(--gradient-accent);
+  border: none;
+  color: $white;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// ==================== PASSWORD INPUT ====================
+.passwordInput {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  input {
+    padding-right: 45px;
+  }
+}
+
+.togglePassword {
+  position: absolute;
+  right: $spacing-md;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-base;
+  border-radius: $radius-sm;
+
+  svg {
+    font-size: 18px;
+  }
+
+  &:hover {
+    background: var(--hover-bg);
+    color: var(--text-primary);
+  }
+}
+
+// ==================== TOGGLE OPTIONS ====================
+.toggleOptions {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.toggleOption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-lg;
+  padding: $spacing-md;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: var(--border-hover);
+  }
+}
+
+.toggleInfo {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+  flex: 1;
+
+  svg {
+    font-size: 24px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-xs 0;
+  }
+
+  p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+  }
+}
+
+.toggle {
+  width: 50px;
+  height: 28px;
+  background: var(--border-color);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all $transition-base;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2px;
+  flex-shrink: 0;
+
+  svg {
+    font-size: 24px;
+    color: var(--text-tertiary);
+    transition: all $transition-base;
+  }
+
+  &:hover {
+    background: var(--border-hover);
+  }
+
+  &.active {
+    background: var(--gradient-accent);
+    justify-content: flex-end;
+
+    svg {
+      color: $white;
+    }
+  }
+}
+
+// ==================== THEME OPTIONS ====================
+.themeOptions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.themeCard {
+  border: 2px solid var(--border-color);
+  border-radius: $radius-sm;
+  padding: $spacing-md;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  &.active {
+    border-color: var(--text-primary);
+    background: var(--hover-bg);
+  }
+}
+
+.themePreview {
+  height: 120px;
+  border-radius: $radius-sm;
+  overflow: hidden;
+  margin-bottom: $spacing-md;
+}
+
+.lightTheme,
+.darkTheme,
+.autoTheme {
+  width: 100%;
+  height: 100%;
+}
+
+.lightTheme {
+  background: #fafafa;
+
+  .previewHeader {
+    height: 20px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .previewContent {
+    display: flex;
+    height: calc(100% - 20px);
+
+    .previewSidebar {
+      width: 30%;
+      background: #ffffff;
+      border-right: 1px solid #e5e5e5;
+    }
+
+    .previewMain {
+      flex: 1;
+      background: #fafafa;
+    }
+  }
+}
+
+.darkTheme {
+  background: #0a0a0a;
+
+  .previewHeader {
+    height: 20px;
+    background: #151515;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  .previewContent {
+    display: flex;
+    height: calc(100% - 20px);
+
+    .previewSidebar {
+      width: 30%;
+      background: #151515;
+      border-right: 1px solid #2a2a2a;
+    }
+
+    .previewMain {
+      flex: 1;
+      background: #0a0a0a;
+    }
+  }
+}
+
+.autoTheme {
+  background: linear-gradient(90deg, #fafafa 50%, #0a0a0a 50%);
+
+  .previewHeader {
+    height: 20px;
+    background: linear-gradient(90deg, #ffffff 50%, #151515 50%);
+    border-bottom: 1px solid transparent;
+  }
+
+  .previewContent {
+    display: flex;
+    height: calc(100% - 20px);
+
+    .previewSidebar {
+      width: 30%;
+      background: linear-gradient(90deg, #ffffff 50%, #151515 50%);
+    }
+
+    .previewMain {
+      flex: 1;
+      background: linear-gradient(90deg, #fafafa 50%, #0a0a0a 50%);
+    }
+  }
+}
+
+.themeInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  svg {
+    font-size: 20px;
+    color: var(--text-primary);
+  }
+}
+
+// ==================== BILLING ====================
+.planCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-lg;
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: $radius-sm;
+  margin-bottom: $spacing-lg;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    text-align: center;
+    gap: $spacing-md;
+  }
+}
+
+.planInfo {
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-xs 0;
+  }
+
+  p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+    text-transform: capitalize;
+  }
+}
+
+.planPrice {
+  text-align: right;
+
+  @media (max-width: $breakpoint-sm) {
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: $spacing-xs;
+
+    @media (max-width: $breakpoint-sm) {
+      justify-content: center;
+    }
+  }
+
+  span {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+}
+
+.changePlanBtn {
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+  }
+}
+
+.paymentCard {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+
+  svg {
+    font-size: 32px;
+    color: var(--text-primary);
+  }
+}
+
+.cardInfo {
+  flex: 1;
+
+  h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-xs 0;
+  }
+
+  p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+}
+
+.editBtn {
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  svg {
+    font-size: 16px;
+  }
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+  }
+}
+
+.addressText {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 $spacing-md 0;
+}
+
+.editAddressBtn {
+  height: 40px;
+  padding: 0 $spacing-lg;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  svg {
+    font-size: 16px;
+  }
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+  }
+}
+
+.billingHistory {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.historyItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+}
+
+.historyInfo {
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-xs 0;
+  }
+
+  p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+}
+
+.historyAmount {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+
+  span {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+}
+
+.downloadBtn {
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  svg {
+    font-size: 14px;
+  }
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+  }
+}
+
+// ==================== ADVANCED SETTINGS ====================
+.exportDataBtn,
+.generateKeyBtn,
+.addWebhookBtn,
+.backupBtn {
+  height: 45px;
+  padding: 0 $spacing-lg;
+  background: var(--gradient-accent);
+  border: none;
+  border-radius: $radius-sm;
+  color: $white;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  svg {
+    font-size: 16px;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.deleteAccountBtn {
+  height: 45px;
+  padding: 0 $spacing-lg;
+  background: #e74c3c;
+  border: 1px solid #c0392b;
+  border-radius: $radius-sm;
+  color: $white;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  svg {
+    font-size: 16px;
+  }
+
+  &:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.apiKeys {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+}
+
+.apiKeyItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-lg;
+  padding: $spacing-lg;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.apiKeyInfo {
+  flex: 1;
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-sm 0;
+  }
+
+  code {
+    display: block;
+    padding: $spacing-sm $spacing-md;
+    background: var(--hover-bg);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-family: 'Courier New', monospace;
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    margin: 0;
+  }
+}
+
+.revokeBtn {
+  height: 40px;
+  padding: 0 $spacing-lg;
+  background: transparent;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  border-radius: $radius-sm;
+  color: #e74c3c;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  cursor: pointer;
+  transition: all $transition-base;
+  flex-shrink: 0;
+
+  svg {
+    font-size: 14px;
+  }
+
+  &:hover {
+    background: rgba(231, 76, 60, 0.1);
+    border-color: #e74c3c;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.webhooksList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+}
+
+.webhookItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-lg;
+  padding: $spacing-lg;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.webhookInfo {
+  flex: 1;
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-xs 0;
+    word-break: break-all;
+  }
+
+  p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+}
+
+.webhookActions {
+  display: flex;
+  gap: $spacing-sm;
+  flex-shrink: 0;
+
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+  }
+
+  button {
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all $transition-base;
+
+    svg {
+      font-size: 14px;
+    }
+
+    &:hover {
+      background: var(--hover-bg);
+      border-color: var(--border-hover);
+      color: var(--text-primary);
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      flex: 1;
+    }
+  }
+
+  .deleteBtn {
+    &:hover {
+      background: rgba(231, 76, 60, 0.1);
+      border-color: #e74c3c;
+      color: #e74c3c;
+    }
+  }
+}
+
+.backupInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.backupItem {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+
+  svg {
+    font-size: 24px;
+    color: var(--text-primary);
+    margin-top: 2px;
+  }
+
+  h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-xs 0;
+  }
+
+  p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+}
+
+// ==================== RESPONSIVE ====================
+@media (max-width: $breakpoint-md) {
+  .pageHeader {
+    .headerLeft {
+      .titleSection {
+        .titleIcon {
+          width: 40px;
+          height: 40px;
+          font-size: 18px;
+        }
+
+        h1 {
+          font-size: 22px;
+        }
+
+        p {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  .sectionHeader {
+    h2 {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .profileImageSection {
+    .imagePreview {
+      width: 100px;
+      height: 100px;
+    }
+
+    .imageButtons {
+      flex-direction: column;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  .planPrice {
+    h3 {
+      font-size: 28px;
+    }
+  }
+
+  .themeOptions {
+    .themePreview {
+      height: 100px;
+    }
+  }
+}

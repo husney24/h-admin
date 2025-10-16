@@ -1,0 +1,1575 @@
+@import '../../styles/variables.scss';
+
+.messages {
+  width: 100%;
+  height: calc(100vh - $header-height - ($spacing-2xl * 2));
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ==================== PAGE HEADER ====================
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-lg;
+  flex-shrink: 0;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+}
+
+.headerLeft {
+  .titleSection {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    .titleIcon {
+      width: 45px;
+      height: 45px;
+      background: var(--gradient-accent);
+      border-radius: $radius-sm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $white;
+      font-size: 22px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 $spacing-xs 0;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+  }
+}
+
+.headerRight {
+  @media (max-width: $breakpoint-md) {
+    width: 100%;
+  }
+}
+
+.newChatBtn {
+  height: 40px;
+  padding: 0 $spacing-lg;
+  background: var(--gradient-accent);
+  border: none;
+  border-radius: $radius-sm;
+  color: $white;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  svg {
+    font-size: 16px;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+// ==================== MESSAGES CONTAINER ====================
+.messagesContainer {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: $spacing-lg;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  overflow: hidden;
+  height: 100%;
+  min-height: 600px;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 280px 1fr;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ==================== CONVERSATIONS SIDEBAR ====================
+.conversationsSidebar {
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  background: var(--hover-bg);
+
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.searchBar {
+  padding: $spacing-lg;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  flex-shrink: 0;
+
+  input {
+    width: 100%;
+    height: 45px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    padding: 0 $spacing-md 0 45px;
+    color: var(--text-primary);
+    font-size: 14px;
+    transition: all $transition-base;
+
+    &::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--border-hover);
+    }
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  left: calc($spacing-lg + $spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.conversationsList {
+  flex: 1;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 2px;
+  }
+}
+
+.conversationItem {
+  display: flex;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  cursor: pointer;
+  transition: all $transition-base;
+  border-bottom: 1px solid var(--border-color);
+
+  &:hover {
+    background: var(--card-bg);
+  }
+
+  &.active {
+    background: var(--card-bg);
+    border-left: 3px solid var(--text-primary);
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.avatar {
+  width: 45px;
+  height: 45px;
+  background: var(--gradient-accent);
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  font-size: 16px;
+  font-weight: 600;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.onlineIndicator {
+  width: 12px;
+  height: 12px;
+  background: #2ecc71;
+  border: 2px solid var(--card-bg);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.conversationInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.conversationHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-xs;
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.timestamp {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  margin-left: $spacing-sm;
+}
+
+.conversationFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.lastMessage {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.unreadBadge {
+  background: var(--gradient-accent);
+  color: $white;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  flex-shrink: 0;
+}
+
+// ==================== CHAT AREA ====================
+.chatArea {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chatHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-lg;
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.chatHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  flex: 1;
+  min-width: 0;
+}
+
+.chatHeaderInfo {
+  flex: 1;
+  min-width: 0;
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-xs 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+}
+
+.chatHeaderActions {
+  display: flex;
+  gap: $spacing-xs;
+}
+
+.iconBtn {
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  svg {
+    font-size: 16px;
+  }
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+  }
+}
+
+// ==================== MESSAGES LIST ====================
+.messagesList {
+  height: 100%;
+  overflow-y: auto;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+  }
+}
+
+.messageWrapper {
+  display: flex;
+  gap: $spacing-sm;
+  animation: messageSlideIn 0.3s ease;
+
+  &.mine {
+    flex-direction: row-reverse;
+
+    .messageContent {
+      align-items: flex-end;
+    }
+
+    .messageBubble {
+      background: var(--gradient-accent);
+      color: $white;
+    }
+  }
+}
+
+@keyframes messageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.messageAvatar {
+  width: 32px;
+  height: 32px;
+  background: var(--gradient-accent);
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.messageContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  max-width: 65%;
+
+  @media (max-width: $breakpoint-md) {
+    max-width: 75%;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    max-width: 85%;
+  }
+}
+
+.messageSender {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 0 $spacing-sm;
+}
+
+.messageBubble {
+  background: var(--hover-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  padding: $spacing-md;
+  word-wrap: break-word;
+
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    color: inherit;
+  }
+}
+
+.messageAttachment {
+  border-radius: $radius-sm;
+  overflow: hidden;
+}
+
+.imageAttachment {
+  position: relative;
+  max-width: 300px;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: $radius-sm;
+  }
+
+  &:hover .imageOverlay {
+    opacity: 1;
+  }
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity $transition-base;
+  border-radius: $radius-sm;
+}
+
+.fileAttachment {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: var(--hover-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  min-width: 250px;
+}
+
+.fileIcon {
+  width: 40px;
+  height: 40px;
+  background: var(--card-bg);
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.fileInfo {
+  flex: 1;
+  min-width: 0;
+
+  h5 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-xs 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  p {
+    font-size: 11px;
+    color: var(--text-tertiary);
+    margin: 0;
+  }
+}
+
+.downloadBtn {
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  svg {
+    font-size: 14px;
+  }
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+  }
+}
+
+.messageFooter {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: 0 $spacing-sm;
+}
+
+.messageTime {
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+.messageStatus {
+  display: flex;
+  align-items: center;
+  color: var(--text-tertiary);
+  font-size: 12px;
+
+  svg {
+    &.read {
+      color: #2ecc71;
+    }
+  }
+}
+
+// ==================== MESSAGE INPUT ====================
+.messageInput {
+  display: flex;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  border-top: 1px solid var(--border-color);
+  background: var(--hover-bg);
+  flex-shrink: 0;
+}
+
+.attachBtn,
+.emojiBtn {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-base;
+  flex-shrink: 0;
+
+  svg {
+    font-size: 18px;
+  }
+
+  &:hover {
+    background: var(--card-bg);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+  }
+}
+
+.inputWrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  transition: all $transition-base;
+
+  &:focus-within {
+    border-color: var(--border-hover);
+  }
+
+  input {
+    flex: 1;
+    height: 40px;
+    background: transparent;
+    border: none;
+    padding: 0 $spacing-md;
+    color: var(--text-primary);
+    font-size: 14px;
+
+    &::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.emojiBtn {
+  border: none;
+  margin-right: $spacing-xs;
+
+  &:hover {
+    background: var(--hover-bg);
+  }
+}
+
+.sendBtn {
+  width: 40px;
+  height: 40px;
+  background: var(--gradient-accent);
+  border: none;
+  border-radius: $radius-sm;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-base;
+  flex-shrink: 0;
+
+  svg {
+    font-size: 18px;
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// ==================== EMPTY STATE ====================
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-tertiary);
+
+  svg {
+    font-size: 64px;
+    margin-bottom: $spacing-lg;
+    opacity: 0.5;
+  }
+
+  h3 {
+    font-size: 20px;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-sm 0;
+  }
+
+  p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+}
+
+// ==================== CHAT INFO SIDEBAR ====================
+.chatInfoSidebar {
+  width: 320px;
+  border-left: 1px solid var(--border-color);
+  background: var(--hover-bg);
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight 0.3s ease;
+
+  @media (max-width: $breakpoint-lg) {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    box-shadow: var(--shadow-xl);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.infoHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-lg;
+  border-bottom: 1px solid var(--border-color);
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+  }
+}
+
+.closeInfoBtn {
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    background: var(--card-bg);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+  }
+}
+
+.infoContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: $spacing-lg;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 2px;
+  }
+}
+
+.infoSection {
+  margin-bottom: $spacing-2xl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 0 0 $spacing-md 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.profileSection {
+  text-align: center;
+  padding: $spacing-lg 0;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-xs 0;
+  }
+
+  .role,
+  .members {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+}
+
+.avatarLarge {
+  width: 80px;
+  height: 80px;
+  background: var(--gradient-accent);
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 auto $spacing-md;
+  position: relative;
+}
+
+.actionsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.actionBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  color: var(--text-primary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  svg {
+    font-size: 18px;
+    color: var(--text-secondary);
+  }
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+
+    svg {
+      color: var(--text-primary);
+    }
+  }
+}
+
+.settingsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.settingItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: var(--card-bg);
+  border-radius: $radius-sm;
+  color: var(--text-primary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  svg {
+    font-size: 16px;
+    color: var(--text-secondary);
+  }
+
+  &:hover {
+    background: var(--hover-bg);
+
+    svg {
+      color: var(--text-primary);
+    }
+  }
+
+  &.danger {
+    color: #e74c3c;
+
+    svg {
+      color: #e74c3c;
+    }
+
+    &:hover {
+      background: rgba(231, 76, 60, 0.1);
+    }
+  }
+}
+
+.mediaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-xs;
+}
+
+.mediaItem {
+  aspect-ratio: 1;
+  border-radius: $radius-sm;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.viewMore {
+  width: 100%;
+  height: 100%;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.membersList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+}
+
+.memberItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-sm;
+  background: var(--card-bg);
+  border-radius: $radius-sm;
+}
+
+.memberAvatar {
+  width: 36px;
+  height: 36px;
+  background: var(--gradient-accent);
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.memberInfo {
+  flex: 1;
+
+  h5 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 2px 0;
+  }
+
+  p {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+}
+
+.viewAllBtn {
+  width: 100%;
+  height: 36px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+  }
+}
+
+// ==================== RESPONSIVE ====================
+@media (max-width: $breakpoint-md) {
+  .messages {
+    height: calc(100vh - $header-height - ($spacing-lg * 2));
+  }
+
+  .messagesContainer {
+    min-height: 500px;
+  }
+
+  .chatInfoSidebar {
+    width: 100%;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .pageHeader {
+    .headerLeft .titleSection {
+      .titleIcon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 13px;
+      }
+    }
+  }
+
+  .messageInput {
+    padding: $spacing-md;
+    gap: $spacing-sm;
+  }
+
+  .attachBtn {
+    display: none;
+  }
+}
+
+// ==================== ADDITIONAL UTILITIES ====================
+
+// Loading state for messages
+.messageLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-lg;
+  color: var(--text-tertiary);
+  font-size: 14px;
+  gap: $spacing-sm;
+
+  &::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border-color);
+    border-top-color: var(--text-primary);
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Typing indicator
+.typingIndicator {
+  display: flex;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-lg;
+  align-items: center;
+
+  .typingDots {
+    display: flex;
+    gap: 4px;
+    padding: $spacing-sm $spacing-md;
+    background: var(--hover-bg);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+
+    span {
+      width: 6px;
+      height: 6px;
+      background: var(--text-tertiary);
+      border-radius: 50%;
+      animation: typingBounce 1.4s infinite;
+
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+    }
+  }
+}
+
+@keyframes typingBounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-6px);
+  }
+}
+
+// Date separator
+.dateSeparator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: $spacing-lg 0;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+  }
+
+  span {
+    padding: 0 $spacing-md;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+// Message reactions
+.messageReactions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.reactionBubble {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: var(--hover-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    background: var(--card-bg);
+    border-color: var(--border-hover);
+    transform: scale(1.05);
+  }
+
+  &.active {
+    background: var(--card-bg);
+    border-color: var(--text-primary);
+  }
+
+  span.emoji {
+    font-size: 14px;
+  }
+
+  span.count {
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+}
+
+// Context menu
+.messageContextMenu {
+  position: absolute;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  box-shadow: var(--shadow-lg);
+  padding: $spacing-xs;
+  min-width: 180px;
+  z-index: $z-dropdown;
+  animation: fadeIn 0.15s ease;
+
+  .menuItem {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $radius-sm;
+    font-size: 13px;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all $transition-base;
+
+    svg {
+      font-size: 16px;
+      color: var(--text-secondary);
+    }
+
+    &:hover {
+      background: var(--hover-bg);
+
+      svg {
+        color: var(--text-primary);
+      }
+    }
+
+    &.danger {
+      color: #e74c3c;
+
+      svg {
+        color: #e74c3c;
+      }
+
+      &:hover {
+        background: rgba(231, 76, 60, 0.1);
+      }
+    }
+  }
+
+  .menuDivider {
+    height: 1px;
+    background: var(--border-color);
+    margin: $spacing-xs 0;
+  }
+}
+
+// Search results highlight
+.searchHighlight {
+  background: rgba(255, 235, 59, 0.3);
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+// Pinned message banner
+.pinnedMessageBanner {
+  padding: $spacing-md $spacing-lg;
+  background: var(--hover-bg);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+
+  .pinnedContent {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    svg {
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .pinnedText {
+      flex: 1;
+      min-width: 0;
+
+      h5 {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin: 0 0 2px 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      p {
+        font-size: 13px;
+        color: var(--text-primary);
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  .closeBtn {
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $radius-sm;
+    transition: all $transition-base;
+    flex-shrink: 0;
+
+    &:hover {
+      background: var(--card-bg);
+      color: var(--text-primary);
+    }
+  }
+}
+
+// Scroll to bottom button
+.scrollToBottomBtn {
+  position: absolute;
+  bottom: 80px;
+  right: $spacing-lg;
+  width: 40px;
+  height: 40px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: all $transition-base;
+  z-index: 5;
+  animation: slideUp 0.3s ease;
+
+  svg {
+    font-size: 20px;
+  }
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .unreadCount {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 20px;
+    height: 20px;
+    background: var(--gradient-accent);
+    color: $white;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+    border: 2px solid var(--card-bg);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Voice message styles
+.voiceMessage {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: var(--hover-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  min-width: 280px;
+
+  .playBtn {
+    width: 36px;
+    height: 36px;
+    background: var(--gradient-accent);
+    border: none;
+    border-radius: 50%;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all $transition-base;
+    flex-shrink: 0;
+
+    svg {
+      font-size: 16px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .waveform {
+    flex: 1;
+    height: 32px;
+    background: var(--card-bg);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+
+    .progress {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background: var(--gradient-accent);
+      transition: width 0.1s linear;
+    }
+  }
+
+  .duration {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+}
+
+// Call notification
+.callNotification {
+  padding: $spacing-lg;
+  background: var(--hover-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  text-align: center;
+
+  .callIcon {
+    width: 48px;
+    height: 48px;
+    background: var(--gradient-accent);
+    border-radius: 50%;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto $spacing-md;
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 14px;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-md 0;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  .callDuration {
+    font-size: 12px;
+    color: var(--text-tertiary);
+  }
+
+  &.missed {
+    .callIcon {
+      background: #e74c3c;
+    }
+
+    p {
+      color: #e74c3c;
+    }
+  }
+}
+
+// Mobile specific styles
+@media (max-width: $breakpoint-sm) {
+  .scrollToBottomBtn {
+    bottom: 70px;
+    right: $spacing-md;
+    width: 36px;
+    height: 36px;
+
+    svg {
+      font-size: 18px;
+    }
+  }
+
+  .voiceMessage {
+    min-width: 240px;
+
+    .playBtn {
+      width: 32px;
+      height: 32px;
+
+      svg {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .messageContextMenu {
+    min-width: 160px;
+    left: 50% !important;
+    transform: translateX(-50%);
+  }
+}
+

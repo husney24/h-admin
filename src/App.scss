@@ -1,0 +1,33 @@
+@import './styles/variables.scss';
+
+.app {
+  min-height: 100vh;
+  background: $color-darker;
+  transition: background $transition-speed $transition-ease;
+
+  &.light {
+    background: $color-light-bg;
+  }
+}
+
+.main-content {
+  padding: $spacing-xl;
+  margin-top: $header-height;
+  transition: margin-left $transition-speed $transition-ease;
+  min-height: calc(100vh - #{$header-height});
+
+  &.expanded {
+    margin-left: $sidebar-width-expanded;
+  }
+
+  &.collapsed {
+    margin-left: $sidebar-width-collapsed;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0 !important;
+    padding: $spacing-md;
+  }
+}

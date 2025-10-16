@@ -1,0 +1,117 @@
+// ==================== COLORS ====================
+
+// Base Colors
+$white: #ffffff;
+$black: #000000;
+
+// Light Mode
+$light-bg: #fafafa;
+$light-card-bg: #ffffff;
+$light-text-primary: #1a1a1a;
+$light-text-secondary: #4a4a4a;
+$light-text-tertiary: #8a8a8a;
+$light-border: #e5e5e5;
+$light-border-hover: #d0d0d0;
+$light-hover-bg: #f5f5f5;
+$light-input-bg: #f8f8f8;
+
+// Dark Mode
+$dark-bg: #0a0a0a;
+$dark-card-bg: #151515;
+$dark-text-primary: #ffffff;
+$dark-text-secondary: #b0b0b0;
+$dark-text-tertiary: #707070;
+$dark-border: #2a2a2a;
+$dark-border-hover: #3a3a3a;
+$dark-hover-bg: #1a1a1a;
+$dark-input-bg: #1a1a1a;
+
+// CSS Variables (will be used throughout)
+:root {
+  --bg-color: #{$light-bg};
+  --card-bg: #{$light-card-bg};
+  --text-primary: #{$light-text-primary};
+  --text-secondary: #{$light-text-secondary};
+  --text-tertiary: #{$light-text-tertiary};
+  --border-color: #{$light-border};
+  --border-hover: #{$light-border-hover};
+  --hover-bg: #{$light-hover-bg};
+  --input-bg: #{$light-input-bg};
+  --gradient-primary: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+  --gradient-accent: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] {
+  --bg-color: #{$dark-bg};
+  --card-bg: #{$dark-card-bg};
+  --text-primary: #{$dark-text-primary};
+  --text-secondary: #{$dark-text-secondary};
+  --text-tertiary: #{$dark-text-tertiary};
+  --border-color: #{$dark-border};
+  --border-hover: #{$dark-border-hover};
+  --hover-bg: #{$dark-hover-bg};
+  --input-bg: #{$dark-input-bg};
+  --gradient-primary: linear-gradient(135deg, #151515 0%, #0a0a0a 100%);
+  --gradient-accent: linear-gradient(135deg, #ffffff 0%, #e5e5e5 100%);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+// Static theme values (fallback)
+$bg-color: $light-bg;
+$card-bg: $light-card-bg;
+$text-primary: $light-text-primary;
+$text-secondary: $light-text-secondary;
+$text-tertiary: $light-text-tertiary;
+$border-color: $light-border;
+$border-hover: $light-border-hover;
+$hover-bg: $light-hover-bg;
+$input-bg: $light-input-bg;
+
+// Gradients
+$gradient-primary: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+$gradient-accent: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+
+// ==================== SPACING ====================
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 12px;
+$spacing-lg: 16px;
+$spacing-xl: 20px;
+$spacing-2xl: 24px;
+$spacing-3xl: 32px;
+
+// ==================== BORDER RADIUS ====================
+$radius-sm: 5px;
+
+// ==================== TRANSITIONS ====================
+$transition-base: 0.2s ease;
+$transition-slow: 0.3s ease;
+
+// ==================== SHADOWS ====================
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 2px 4px rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.12);
+$shadow-xl: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+// ==================== LAYOUT ====================
+$header-height: 70px;
+$sidebar-width: 280px;
+$sidebar-width-collapsed: 80px;
+
+// ==================== BREAKPOINTS ====================
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// ==================== Z-INDEX ====================
+$z-dropdown: 1000;
+$z-modal: 1100;
+$z-tooltip: 1200;
