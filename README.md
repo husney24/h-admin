@@ -24,6 +24,8 @@ Mobile-Friendly Design
 
 Clean Black & White Theme (5px border radius everywhere)
 
+For any enquiries,visit my portfolio: https://husney.vercel.app
+
 preview link
 https://h-admin-zeta.vercel.app
 <img width="1366" height="768" alt="Screenshot (2)" src="https://github.com/user-attachments/assets/cb0a92eb-513c-49bd-ab7f-087682ce5c60" />
