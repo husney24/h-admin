@@ -1,16 +1,37 @@
-# React + Vite
+Available Pages & Routes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+/ – Dashboard
+/users – User Management
+/services – All Services
+/projects – All Projects
+/settings – Settings
+/messages – Messages
+CURD modals 
 
-Currently, two official plugins are available:
+Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Responsive Layout with adaptive sidebar
+Dark/Light Mode Toggle
+Mobile-Friendly Design
+Clean Black & White Theme (5px border radius everywhere)
 
-## React Compiler
+preview link
+https://h-admin-zeta.vercel.app
+<img width="1366" height="768" alt="Screenshot (2)" src="https://github.com/user-attachments/assets/cb0a92eb-513c-49bd-ab7f-087682ce5c60" />
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+<img width="1366" height="768" alt="Screenshot (3)" src="https://github.com/user-attachments/assets/97156499-8d59-40ff-8e49-760f235b96a2" />
 
-## Expanding the ESLint configuration
+<img width="1366" height="768" alt="Screenshot (4)" src="https://github.com/user-attachments/assets/cb92b8f1-04cf-4154-9701-69d964659106" />
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<img width="1366" height="768" alt="Screenshot (5)" src="https://github.com/user-attachments/assets/1afea9e6-3238-416b-b76d-1800ffcbb70f" />
+
+<img width="1366" height="768" alt="Screenshot (6)" src="https://github.com/user-attachments/assets/0fa28e15-7963-4ccf-9de6-99776f6b8243" />
+<img width="319" height="659" alt="Screenshot (7)" src="https://github.com/user-attachments/assets/d23b26c3-850a-4d71-b51d-67bf0734ff2b" />
+
+
+
+
+
+
+
+
