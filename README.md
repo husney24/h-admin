@@ -8,7 +8,7 @@ Available Pages & Routes
 
 /projects – All Projects
 
-/settings – Settings
+/settings – Settings - Profile Information - Security Settings - Notification Preferences - Appearance Settings - Billing & Subscription - Advanced Settings
 
 /messages – Messages
 
