@@ -27,6 +27,7 @@ Clean Black & White Theme (5px border radius everywhere)
 For any enquiries,visit my portfolio: https://husney.vercel.app
 
 preview link
+
 https://h-admin-zeta.vercel.app
 <img width="1366" height="768" alt="Screenshot (2)" src="https://github.com/user-attachments/assets/cb0a92eb-513c-49bd-ab7f-087682ce5c60" />
 <img width="1366" height="768" alt="Screenshot (9)" src="https://github.com/user-attachments/assets/07290629-bd33-4c82-bec3-5b02282f6ad5" />
