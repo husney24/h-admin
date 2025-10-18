@@ -145,13 +145,20 @@ Check out my other work: [husney.vercel.app](https://husney.vercel.app)
 MIT - do whatever you want with it.
 
 ## 📸 Screenshots
+
+<img width="1366" height="768" alt="Screenshot (16)" src="https://github.com/user-attachments/assets/4ffc463d-225e-4268-928a-ede6ae29792f" />
+<img width="1366" height="768" alt="Screenshot (17)" src="https://github.com/user-attachments/assets/dda97117-f295-44d8-bb00-581f0c15a799" />
+<img width="1366" height="768" alt="Screenshot (14)" src="https://github.com/user-attachments/assets/18ac20da-452c-4a93-b325-303a8a82b7f0" />
+
+
+
 <img width="1366" height="768" alt="Screenshot (2)" src="https://github.com/user-attachments/assets/cb0a92eb-513c-49bd-ab7f-087682ce5c60" />
-<img width="1366" height="768" alt="Screenshot (9)" src="https://github.com/user-attachments/assets/07290629-bd33-4c82-bec3-5b02282f6ad5" />
-
-
 <img width="1366" height="768" alt="Screenshot (3)" src="https://github.com/user-attachments/assets/97156499-8d59-40ff-8e49-760f235b96a2" />
 <img width="1366" height="768" alt="Screenshot (4)" src="https://github.com/user-attachments/assets/cb92b8f1-04cf-4154-9701-69d964659106" />
 <img width="1366" height="768" alt="Screenshot (8)" src="https://github.com/user-attachments/assets/6f6848c7-4237-4fd5-9ebb-cfcfc3d7c386" />
+
+
+![WhatsApp Image 2025-10-19 at 02 14 44_311c2a43](https://github.com/user-attachments/assets/180fbf78-a786-4e5e-8502-566e250635ba)
 <img width="319" height="659" alt="Screenshot (7)" src="https://github.com/user-attachments/assets/d23b26c3-850a-4d71-b51d-67bf0734ff2b" />
 
 
