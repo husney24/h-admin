@@ -1,0 +1,1281 @@
+@import '../../styles/variables.scss';
+
+.integrations {
+  width: 100%;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ==================== PAGE HEADER ====================
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-2xl;
+  gap: $spacing-lg;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.headerLeft {
+  .titleSection {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    .titleIcon {
+      width: 45px;
+      height: 45px;
+      background: var(--gradient-accent);
+      border-radius: $radius-sm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $white;
+      font-size: 22px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 $spacing-xs 0;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+  }
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+
+  @media (max-width: $breakpoint-md) {
+    width: 100%;
+  }
+}
+
+.docsBtn,
+.addBtn {
+  height: 40px;
+  padding: 0 $spacing-lg;
+  border-radius: $radius-sm;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  svg {
+    font-size: 16px;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+.docsBtn {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+  }
+}
+
+.addBtn {
+  background: var(--text-primary);
+  border: 2px solid var(--text-primary);
+  color: var(--card-bg);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+// ==================== STATS GRID ====================
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: $spacing-lg;
+  margin-bottom: $spacing-2xl;
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+  }
+}
+
+.statCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  padding: $spacing-lg;
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.statIcon {
+  width: 45px;
+  height: 45px;
+  background: var(--hover-bg);
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.statContent {
+  p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0 0 $spacing-xs 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1;
+  }
+}
+
+.statChange {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin-top: $spacing-xs;
+
+  svg {
+    font-size: 12px;
+  }
+}
+
+// ==================== CONTROLS ====================
+.controls {
+  display: flex;
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+  align-items: center;
+
+  @media (max-width: $breakpoint-lg) {
+    flex-wrap: wrap;
+  }
+}
+
+.searchBar {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 250px;
+
+  @media (max-width: $breakpoint-lg) {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  input {
+    width: 100%;
+    height: 45px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    padding: 0 $spacing-md 0 45px;
+    color: var(--text-primary);
+    font-size: 14px;
+    transition: all $transition-base;
+
+    &::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--border-hover);
+    }
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  left: $spacing-md;
+  color: var(--text-tertiary);
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.filters {
+  display: flex;
+  gap: $spacing-md;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.filterSelect {
+  height: 45px;
+  padding: 0 $spacing-lg 0 $spacing-md;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  color: var(--text-primary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all $transition-base;
+  min-width: 150px;
+
+  &:hover {
+    border-color: var(--border-hover);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--border-hover);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+  }
+}
+
+.viewToggle {
+  display: flex;
+  gap: $spacing-xs;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  padding: $spacing-xs;
+}
+
+.viewBtn {
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  border-radius: $radius-sm;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-base;
+  font-size: 16px;
+
+  &:hover {
+    color: var(--text-primary);
+    background: var(--hover-bg);
+  }
+
+  &.active {
+    color: var(--card-bg);
+    background: var(--text-primary);
+  }
+}
+
+// ==================== INTEGRATIONS GRID ====================
+.integrationsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: $spacing-lg;
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+}
+
+.integrationCard {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  overflow: hidden;
+  transition: all $transition-base;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.cardHeader {
+  padding: $spacing-lg;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.integrationIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.cardContent {
+  padding: $spacing-lg;
+  flex: 1;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-xs 0;
+  }
+
+  .category {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  .description {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0 0 $spacing-md 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.connectionInfo {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-md;
+  padding: $spacing-md;
+  background: var(--hover-bg);
+  border-radius: $radius-sm;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-size: 12px;
+  color: var(--text-secondary);
+
+  svg {
+    font-size: 14px;
+    color: var(--text-tertiary);
+  }
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.featureTag {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: 12px;
+  color: var(--text-secondary);
+
+  svg {
+    font-size: 14px;
+    color: var(--text-primary);
+  }
+}
+
+.cardActions {
+  padding: $spacing-md $spacing-lg;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: $spacing-sm;
+  background: var(--hover-bg);
+
+  button {
+    flex: 1;
+    height: 40px;
+    border-radius: $radius-sm;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-xs;
+    cursor: pointer;
+    transition: all $transition-base;
+
+    svg {
+      font-size: 16px;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+
+.connectBtn {
+  background: var(--text-primary);
+  border: 2px solid var(--text-primary);
+  color: var(--card-bg);
+  flex: 2;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.configureBtn {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+  }
+}
+
+.disconnectBtn {
+  background: transparent;
+  border: 2px solid var(--border-color);
+  color: var(--text-secondary);
+
+  &:hover {
+    background: rgba(231, 76, 60, 0.1);
+    border-color: #e74c3c;
+    color: #e74c3c;
+  }
+}
+
+.detailsBtn {
+  background: transparent;
+  border: 2px solid var(--border-color);
+  color: var(--text-secondary);
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+  }
+}
+
+// ==================== STATUS BADGES ====================
+.statusConnected,
+.statusAvailable,
+.statusDisabled {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $radius-sm;
+  font-size: 12px;
+  font-weight: 500;
+
+  svg {
+    font-size: 14px;
+  }
+}
+
+.statusConnected {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.statusAvailable {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.statusDisabled {
+  background: rgba(156, 163, 175, 0.1);
+  color: #9ca3af;
+  border: 1px solid rgba(156, 163, 175, 0.2);
+}
+
+// ==================== LIST VIEW ====================
+.integrationsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.integrationListItem {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  padding: $spacing-lg;
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-md);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.listIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.listContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.listHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+  margin-bottom: $spacing-sm;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.listTitle {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .category {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+}
+
+.listMeta {
+  display: flex;
+  gap: $spacing-lg;
+  margin-top: $spacing-sm;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: 12px;
+  color: var(--text-secondary);
+
+  svg {
+    font-size: 14px;
+    color: var(--text-tertiary);
+  }
+}
+
+.listActions {
+  display: flex;
+  gap: $spacing-sm;
+  flex-shrink: 0;
+
+  @media (max-width: $breakpoint-md) {
+    width: 100%;
+  }
+
+  button {
+    height: 40px;
+    padding: 0 $spacing-lg;
+    border-radius: $radius-sm;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-xs;
+    cursor: pointer;
+    transition: all $transition-base;
+
+    svg {
+      font-size: 16px;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    @media (max-width: $breakpoint-md) {
+      flex: 1;
+    }
+  }
+}
+
+// ==================== EMPTY STATE ====================
+.emptyState {
+  text-align: center;
+  padding: $spacing-3xl;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+
+  svg {
+    font-size: 64px;
+    color: var(--text-tertiary);
+    opacity: 0.5;
+    margin-bottom: $spacing-lg;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-sm 0;
+  }
+
+  p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+}
+
+// ==================== MODAL ====================
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: $spacing-lg;
+  animation: fadeIn 0.2s ease;
+  backdrop-filter: blur(4px);
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-md;
+  }
+}
+
+.modal {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease;
+  box-shadow: var(--shadow-xl);
+
+  @media (max-width: $breakpoint-sm) {
+    max-width: 100%;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modalHeader {
+  padding: $spacing-lg;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--hover-bg);
+
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+  }
+}
+
+.closeBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-sm;
+  border: 2px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all $transition-base;
+  font-size: 18px;
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+  }
+}
+
+.modalBody {
+  padding: $spacing-lg;
+  overflow-y: auto;
+  flex: 1;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--hover-bg);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-md;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: $spacing-lg 0 $spacing-md;
+    text-align: center;
+  }
+}
+
+.modalIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin: 0 auto $spacing-lg;
+}
+
+.modalDescription {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 $spacing-2xl 0;
+}
+
+.featuresList {
+  margin-bottom: $spacing-xl;
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-md 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      padding: $spacing-sm 0;
+      font-size: 14px;
+      color: var(--text-secondary);
+
+      svg {
+        font-size: 16px;
+        color: var(--text-primary);
+      }
+    }
+  }
+}
+
+.permissionsList {
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-md 0;
+  }
+}
+
+.permission {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: var(--hover-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  margin-bottom: $spacing-sm;
+  font-size: 13px;
+  color: var(--text-secondary);
+
+  svg {
+    font-size: 20px;
+    color: var(--text-tertiary);
+  }
+}
+
+.modalFooter {
+  padding: $spacing-lg;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: $spacing-md;
+  justify-content: flex-end;
+  background: var(--hover-bg);
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-md;
+    flex-direction: column;
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.cancelBtn,
+.connectBtnLarge,
+.disconnectConfirmBtn,
+.saveBtn {
+  height: 45px;
+  padding: 0 $spacing-xl;
+  border-radius: $radius-sm;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all $transition-base;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+
+  svg {
+    font-size: 16px;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.cancelBtn {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+  }
+}
+
+.connectBtnLarge,
+.saveBtn {
+  background: var(--text-primary);
+  border: 2px solid var(--text-primary);
+  color: var(--card-bg);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.disconnectConfirmBtn {
+  background: #e74c3c;
+  border: 1px solid #c0392b;
+  color: $white;
+
+  &:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+  }
+}
+
+// ==================== DISCONNECT MODAL ====================
+.disconnectConfirm {
+  text-align: center;
+  padding: $spacing-lg 0;
+}
+
+.disconnectIcon {
+  width: 70px;
+  height: 70px;
+  background: rgba(231, 76, 60, 0.1);
+  border: 2px solid rgba(231, 76, 60, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto $spacing-lg;
+  color: #e74c3c;
+  font-size: 32px;
+}
+
+.disconnectConfirm h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 $spacing-md 0;
+}
+
+.disconnectConfirm p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+}
+
+// ==================== DETAILS MODAL ====================
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.detailItem {
+  padding: $spacing-md;
+  background: var(--hover-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  strong {
+    font-size: 12px;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+
+  span {
+    font-size: 14px;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+}
+
+.section {
+  margin-bottom: $spacing-xl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 $spacing-md 0;
+  }
+
+  p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.featuresTags,
+.plansTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.planTag {
+  padding: $spacing-xs $spacing-md;
+  background: var(--hover-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+// ==================== CONFIGURE MODAL ====================
+.configForm {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-lg;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  input,
+  select {
+    height: 45px;
+    padding: 0 $spacing-md;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-sm;
+    color: var(--text-primary);
+    font-size: 14px;
+    transition: all $transition-base;
+
+    &::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--border-hover);
+    }
+  }
+
+  select {
+    cursor: pointer;
+  }
+}
+
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 400;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+  }
+}
+
+.configActions {
+  display: flex;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  background: var(--hover-bg);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+  }
+}
+
+.testBtn,
+.syncBtn {
+  flex: 1;
+  height: 40px;
+  padding: 0 $spacing-lg;
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: $radius-sm;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  svg {
+    font-size: 16px;
+  }
+
+  &:hover {
+    background: var(--hover-bg);
+    border-color: var(--border-hover);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// ==================== RESPONSIVE ====================
+@media (max-width: $breakpoint-md) {
+  .pageHeader {
+    .headerLeft {
+      .titleSection {
+        .titleIcon {
+          width: 40px;
+          height: 40px;
+          font-size: 18px;
+        }
+
+        h1 {
+          font-size: 22px;
+        }
+
+        p {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  .statsGrid {
+    .statCard {
+      .statIcon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      .statContent {
+        h3 {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .integrationCard {
+    .cardContent {
+      h3 {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .integrationListItem {
+    .listIcon {
+      width: 40px;
+      height: 40px;
+      font-size: 24px;
+    }
+
+    .listTitle {
+      h3 {
+        font-size: 14px;
+      }
+    }
+  }
+}

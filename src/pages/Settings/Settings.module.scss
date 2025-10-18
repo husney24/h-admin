@@ -130,12 +130,15 @@
   &:hover {
     background: var(--hover-bg);
     color: var(--text-primary);
+    border-color: var(--border-color);
   }
 
   &.active {
-    background: var(--gradient-accent);
-    color: $white;
-    border-color: transparent;
+    background: var(--text-primary);
+    color: var(--card-bg);
+    border-color: var(--text-primary);
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
   }
 
   @media (max-width: $breakpoint-md) {
@@ -304,13 +307,18 @@
 }
 
 .uploadBtn {
-  background: var(--gradient-accent);
-  border: none;
-  color: $white;
+  background: var(--text-primary);
+  border: 2px solid var(--text-primary);
+  color: var(--card-bg);
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
+    opacity: 0.9;
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 }
 
@@ -448,23 +456,24 @@
 
 .cancelBtn {
   background: transparent;
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   color: var(--text-primary);
 
   &:hover {
     background: var(--hover-bg);
-    border-color: var(--border-hover);
+    border-color: var(--text-secondary);
   }
 }
 
 .saveBtn {
-  background: var(--gradient-accent);
-  border: none;
-  color: $white;
+  background: var(--text-primary);
+  border: 2px solid var(--text-primary);
+  color: var(--card-bg);
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
+    opacity: 0.9;
   }
 
   &:active {
@@ -522,12 +531,13 @@
   gap: $spacing-lg;
   padding: $spacing-md;
   background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: $radius-sm;
   transition: all $transition-base;
 
   &:hover {
     border-color: var(--border-hover);
+    box-shadow: var(--shadow-sm);
   }
 }
 
@@ -563,7 +573,7 @@
   width: 50px;
   height: 28px;
   background: var(--border-color);
-  border: none;
+  border: 2px solid var(--border-hover);
   border-radius: 14px;
   cursor: pointer;
   transition: all $transition-base;
@@ -581,14 +591,20 @@
 
   &:hover {
     background: var(--border-hover);
+    border-color: var(--text-secondary);
   }
 
   &.active {
-    background: var(--gradient-accent);
+    background: var(--text-primary);
+    border-color: var(--text-primary);
     justify-content: flex-end;
 
     svg {
-      color: $white;
+      color: var(--card-bg);
+    }
+
+    &:hover {
+      opacity: 0.9;
     }
   }
 }
@@ -610,15 +626,24 @@
   padding: $spacing-md;
   cursor: pointer;
   transition: all $transition-base;
+  background: var(--card-bg);
 
   &:hover {
-    border-color: var(--border-hover);
+    border-color: var(--text-secondary);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
   }
 
   &.active {
     border-color: var(--text-primary);
     background: var(--hover-bg);
+    box-shadow: var(--shadow-lg);
+
+    .themeInfo {
+      svg {
+        color: var(--text-primary);
+      }
+    }
   }
 }
 
@@ -641,7 +666,7 @@
 
   .previewHeader {
     height: 20px;
-    background: #ffffff;
+    background: var(--card-bg);
     border-bottom: 1px solid #e5e5e5;
   }
 
@@ -651,7 +676,7 @@
 
     .previewSidebar {
       width: 30%;
-      background: #ffffff;
+      background: var(--card-bg);
       border-right: 1px solid #e5e5e5;
     }
 
@@ -667,7 +692,7 @@
 
   .previewHeader {
     height: 20px;
-    background: #151515;
+    background: var(--card-bg);
     border-bottom: 1px solid #2a2a2a;
   }
 
@@ -677,7 +702,7 @@
 
     .previewSidebar {
       width: 30%;
-      background: #151515;
+      background: var(--card-bg);
       border-right: 1px solid #2a2a2a;
     }
 
@@ -693,7 +718,7 @@
 
   .previewHeader {
     height: 20px;
-    background: linear-gradient(90deg, #ffffff 50%, #151515 50%);
+    background: linear-gradient(90deg, var(--card-bg) 50%, var(--card-bg) 50%);
     border-bottom: 1px solid transparent;
   }
 
@@ -703,7 +728,7 @@
 
     .previewSidebar {
       width: 30%;
-      background: linear-gradient(90deg, #ffffff 50%, #151515 50%);
+      background: linear-gradient(90deg, var(--card-bg) 50%, var(--card-bg) 50%);
     }
 
     .previewMain {
@@ -979,10 +1004,10 @@
 .backupBtn {
   height: 45px;
   padding: 0 $spacing-lg;
-  background: var(--gradient-accent);
-  border: none;
+  background: var(--text-primary);
+  border: 2px solid var(--text-primary);
   border-radius: $radius-sm;
-  color: $white;
+  color: var(--card-bg);
   font-size: 14px;
   font-weight: 500;
   display: flex;
@@ -999,6 +1024,7 @@
   &:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
+    opacity: 0.9;
   }
 
   &:active {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom'; // ADD THIS IMPORT
+import LogoutModal from '../LogoutModal/LogoutModal';
 import { 
   FiHome,
   FiBarChart2,
@@ -38,6 +39,7 @@ import styles from './Sidebar.module.scss';
 
 const Sidebar = ({ isOpen, isMobile }) => {
   const [openMenus, setOpenMenus] = useState({});
+  const [logoutModalOpen, setLogoutModalOpen] = useState(false);
   const location = useLocation(); // ADD THIS LINE
 
   const toggleMenu = (menuName) => {
@@ -45,6 +47,15 @@ const Sidebar = ({ isOpen, isMobile }) => {
       ...prev,
       [menuName]: !prev[menuName]
     }));
+  };
+
+  const handleLogoutClick = () => {
+    setLogoutModalOpen(true);
+  };
+
+  const handleLogoutConfirm = () => {
+    setLogoutModalOpen(false);
+    // Add logout logic here (redirect, clear session, etc.)
   };
 
   const menuItems = [
@@ -113,7 +124,8 @@ const Sidebar = ({ isOpen, isMobile }) => {
   ];
 
   return (
-    <aside className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed} ${isMobile ? styles.mobile : ''}`}>
+    <>
+      <aside className={`${styles.sidebar} ${isOpen ? styles.open : styles.closed} ${isMobile ? styles.mobile : ''}`}>
       <div className={styles.sidebarContent}>
         {/* Logo */}
         <div className={styles.logo}>
@@ -171,13 +183,13 @@ const Sidebar = ({ isOpen, isMobile }) => {
           
           {isOpen && (
             <div className={styles.profileActions}>
-              <button className={styles.actionBtn}>
+              <Link to="/profile" className={styles.actionBtn}>
                 <FiUser /> Profile
-              </button>
-              <button className={styles.actionBtn}>
+              </Link>
+              <Link to="/settings?tab=security" className={styles.actionBtn}>
                 <FiLock /> Security
-              </button>
-              <button className={`${styles.actionBtn} ${styles.logout}`}>
+              </Link>
+              <button className={`${styles.actionBtn} ${styles.logout}`} onClick={handleLogoutClick}>
                 <FiLogOut /> Logout
               </button>
             </div>
@@ -185,6 +197,13 @@ const Sidebar = ({ isOpen, isMobile }) => {
         </div>
       </div>
     </aside>
+
+    <LogoutModal 
+      isOpen={logoutModalOpen}
+      onClose={() => setLogoutModalOpen(false)}
+      onConfirm={handleLogoutConfirm}
+    />
+    </>
   );
 };
 

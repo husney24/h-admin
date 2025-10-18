@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import {
   FiSettings,
   FiUser,
@@ -34,7 +35,16 @@ import {
 import styles from './Settings.module.scss';
 
 const Settings = () => {
+  const [searchParams] = useSearchParams();
   const [activeTab, setActiveTab] = useState('profile');
+  
+  // Set active tab from URL parameter on mount
+  useEffect(() => {
+    const tab = searchParams.get('tab');
+    if (tab) {
+      setActiveTab(tab);
+    }
+  }, [searchParams]);
   const [showPassword, setShowPassword] = useState({
     current: false,
     new: false,

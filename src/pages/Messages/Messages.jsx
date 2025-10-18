@@ -293,7 +293,7 @@ const Messages = () => {
         </div>
       </div>
 
-      <div className={styles.messagesContainer}>
+      <div className={`${styles.messagesContainer} ${showChatInfo ? styles.infoVisible : ''}`}>
         {/* Conversations Sidebar */}
         <div className={styles.conversationsSidebar}>
           <div className={styles.searchBar}>
@@ -371,14 +371,13 @@ const Messages = () => {
               </div>
             </div>
 
-            {/* Messages Container */}
-            <div className={styles.messagesContainer}>
-              <div className={styles.messagesList}>
-                {(messages[selectedChat.id] || []).map(msg => (
-                  <div
-                    key={msg.id}
-                    className={`${styles.messageWrapper} ${msg.isMine ? styles.mine : ''}`}
-                  >
+            {/* Messages List */}
+            <div className={styles.messagesList}>
+              {(messages[selectedChat.id] || []).map(msg => (
+                <div
+                  key={msg.id}
+                  className={`${styles.messageWrapper} ${msg.isMine ? styles.mine : ''}`}
+                >
                     {!msg.isMine && (
                       <div className={styles.messageAvatar}>
                         {selectedChat.avatar}
@@ -431,7 +430,6 @@ const Messages = () => {
                 ))}
                 <div ref={messagesEndRef} />
               </div>
-            </div>
 
             {/* Message Input */}
             <form className={styles.messageInput} onSubmit={handleSendMessage}>

@@ -28,6 +28,14 @@ $dark-input-bg: #1a1a1a;
 
 // CSS Variables (will be used throughout)
 :root {
+  --primary-color: #1a1a1a;
+  --primary-hover: #000000;
+  --secondary-color: #4a4a4a;
+  --success-color: #2a2a2a;
+  --error-color: #1a1a1a;
+  --warning-color: #3a3a3a;
+  --info-color: #2a2a2a;
+  --background-color: #fafafa;
   --bg-color: #{$light-bg};
   --card-bg: #{$light-card-bg};
   --text-primary: #{$light-text-primary};
@@ -46,6 +54,14 @@ $dark-input-bg: #1a1a1a;
 }
 
 [data-theme='dark'] {
+  --primary-color: #ffffff;
+  --primary-hover: #e5e5e5;
+  --secondary-color: #d0d0d0;
+  --success-color: #e5e5e5;
+  --error-color: #f5f5f5;
+  --warning-color: #d0d0d0;
+  --info-color: #e5e5e5;
+  --background-color: #0a0a0a;
   --bg-color: #{$dark-bg};
   --card-bg: #{$dark-card-bg};
   --text-primary: #{$dark-text-primary};

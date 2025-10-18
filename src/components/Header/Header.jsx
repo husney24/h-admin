@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   FiSearch, 
   FiSun, 
@@ -11,6 +12,7 @@ import {
   FiLogOut,
   FiMenu
 } from 'react-icons/fi';
+import LogoutModal from '../LogoutModal/LogoutModal';
 import styles from './Header.module.scss';
 
 const Header = ({ toggleSidebar, isDarkMode, toggleDarkMode }) => {
@@ -18,6 +20,7 @@ const Header = ({ toggleSidebar, isDarkMode, toggleDarkMode }) => {
   const [notificationOpen, setNotificationOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [searchFocused, setSearchFocused] = useState(false);
+  const [logoutModalOpen, setLogoutModalOpen] = useState(false);
   
   const notificationRef = useRef(null);
   const profileRef = useRef(null);
@@ -56,8 +59,19 @@ const Header = ({ toggleSidebar, isDarkMode, toggleDarkMode }) => {
 
   const unreadCount = notifications.filter(n => n.unread).length;
 
+  const handleLogoutClick = () => {
+    setLogoutModalOpen(true);
+    setProfileOpen(false);
+  };
+
+  const handleLogoutConfirm = () => {
+    setLogoutModalOpen(false);
+    // Add logout logic here (redirect, clear session, etc.)
+  };
+
   return (
-    <header className={styles.header}>
+    <>
+      <header className={styles.header}>
       <div className={styles.headerLeft}>
         <button className={styles.menuBtn} onClick={toggleSidebar}>
           <FiMenu />
@@ -152,14 +166,14 @@ const Header = ({ toggleSidebar, isDarkMode, toggleDarkMode }) => {
                 <p>admin@husney.com</p>
               </div>
               <div className={styles.menuDivider}></div>
-              <button className={styles.menuItem}>
+              <Link to="/profile" className={styles.menuItem} onClick={() => setProfileOpen(false)}>
                 <FiUser /> My Profile
-              </button>
-              <button className={styles.menuItem}>
+              </Link>
+              <Link to="/settings" className={styles.menuItem} onClick={() => setProfileOpen(false)}>
                 <FiSettings /> Settings
-              </button>
+              </Link>
               <div className={styles.menuDivider}></div>
-              <button className={`${styles.menuItem} ${styles.logout}`}>
+              <button className={`${styles.menuItem} ${styles.logout}`} onClick={handleLogoutClick}>
                 <FiLogOut /> Logout
               </button>
             </div>
@@ -167,6 +181,13 @@ const Header = ({ toggleSidebar, isDarkMode, toggleDarkMode }) => {
         </div>
       </div>
     </header>
+
+    <LogoutModal 
+      isOpen={logoutModalOpen}
+      onClose={() => setLogoutModalOpen(false)}
+      onConfirm={handleLogoutConfirm}
+    />
+    </>
   );
 };
 

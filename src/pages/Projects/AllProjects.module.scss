@@ -39,12 +39,13 @@
     .titleIcon {
       width: 45px;
       height: 45px;
-      background: var(--gradient-accent);
+      background: var(--hover-bg);
+      border: 2px solid var(--border-color);
       border-radius: $radius-sm;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: $white;
+      color: var(--text-primary);
       font-size: 22px;
     }
 
@@ -103,7 +104,7 @@
 
 .exportBtn {
   background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   color: var(--text-primary);
 
   &:hover {
@@ -113,11 +114,12 @@
 }
 
 .createBtn {
-  background: var(--gradient-accent);
-  border: 1px solid transparent;
-  color: $white;
+  background: var(--text-primary);
+  border: 2px solid var(--text-primary);
+  color: var(--card-bg);
 
   &:hover {
+    opacity: 0.9;
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
   }
@@ -308,8 +310,9 @@
   }
 
   &.active {
-    background: var(--gradient-accent);
-    color: $white;
+    background: var(--text-primary);
+    color: var(--card-bg);
+    border: 1px solid var(--text-primary);
   }
 
   @media (max-width: $breakpoint-lg) {
@@ -590,7 +593,7 @@
 
 .progressFill {
   height: 100%;
-  background: var(--gradient-accent);
+  background: var(--text-primary);
   border-radius: 3px;
   transition: width 0.5s ease;
 }
@@ -625,7 +628,7 @@
 .tag {
   padding: 4px 8px;
   background: var(--hover-bg);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: $radius-sm;
   font-size: 11px;
   color: var(--text-secondary);
@@ -642,7 +645,7 @@
   button {
     flex: 1;
     height: 36px;
-    border: 1px solid var(--border-color);
+    border: 2px solid var(--border-color);
     background: var(--card-bg);
     color: var(--text-secondary);
     border-radius: $radius-sm;
@@ -772,7 +775,7 @@
   button {
     width: 40px;
     height: 40px;
-    border: 1px solid var(--border-color);
+    border: 2px solid var(--border-color);
     background: var(--card-bg);
     color: var(--text-secondary);
     border-radius: $radius-sm;
@@ -907,7 +910,7 @@
   width: 32px;
   height: 32px;
   border-radius: $radius-sm;
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   background: var(--card-bg);
   color: var(--text-secondary);
   display: flex;
@@ -1078,7 +1081,7 @@
   height: 45px;
   padding: 0 $spacing-lg;
   background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: $radius-sm;
   color: var(--text-primary);
   font-size: 14px;
@@ -1128,12 +1131,12 @@
     color: var(--text-primary);
   }
 
-  input,
+.input,
   select,
   textarea {
     padding: 0 $spacing-md;
     background: var(--input-bg);
-    border: 1px solid var(--border-color);
+    border: 2px solid var(--border-color);
     border-radius: $radius-sm;
     color: var(--text-primary);
     font-size: 14px;
@@ -1193,7 +1196,7 @@
 
 .cancelBtn {
   background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   color: var(--text-primary);
 
   &:hover {
@@ -1203,11 +1206,12 @@
 }
 
 .submitBtn {
-  background: var(--gradient-accent);
-  border: 1px solid transparent;
-  color: $white;
+  background: var(--text-primary);
+  border: 2px solid var(--text-primary);
+  color: var(--card-bg);
 
   &:hover {
+    opacity: 0.9;
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
   }
@@ -1333,7 +1337,7 @@
 .teamMember {
   padding: 4px 10px;
   background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: $radius-sm;
   font-size: 12px;
   color: var(--text-secondary);
