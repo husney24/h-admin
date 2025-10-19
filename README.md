@@ -1,6 +1,6 @@
 # H-Admin Dashboard
 
-A clean and modern admin panel I built with React vite. It's got everything you need to manage services, projects, teams, and track analytics - all with a nice dark/light mode that actually works properly.
+A clean and modern admin panel I built with React + Vite. It's got everything you need to manage services, projects, teams, and track analytics - all with a nice dark/light mode that syncs with your system theme.
 
 **Check it out live:** [https://h-admin-zeta.vercel.app](https://h-admin-zeta.vercel.app)
 
@@ -10,25 +10,48 @@ A clean and modern admin panel I built with React vite. It's got everything you 
 ## What's Inside
 
 ### The Good Stuff
-- **Dark/Light Mode** that actually looks good in both themes
-- **30+ Pages** for managing everything - services, projects, teams, analytics, you name it
-- **Fully Responsive** - works great on phones, tablets, and desktops
-- **Clean Design** - no unnecessary clutter, just what you need
+- **🔐 Full Authentication System** - Login, signup, forgot password, reset password with beautiful SVG backgrounds
+- **🌓 Smart Dark/Light Mode** - Automatically syncs with your system theme (but you can still toggle manually)
+- **📱 Fully Responsive** - Works great on phones, tablets, and desktops
+- **🎨 Clean Design** - No unnecessary clutter, just what you need
+- **🔒 Protected Routes** - All dashboard pages secured behind authentication
+- **💾 Session Persistence** - Stay logged in even after page refresh
+- **30+ Pages** - Everything you need to manage your business
 
 ### Main Features
 - Complete analytics dashboard to track all your metrics
 - Service management for 6 different service types (web, mobile, backend, cloud, design, ecommerce)
 - Project tracking with different views and statuses
-- User and team management
+- User and team management with authentication
+- Profile page with real social links and skills
 - Settings panel with everything from profile to billing
 - Messages system with notifications
 - Help center and documentation
 
+## 🔐 Authentication System
+
+Full authentication flow with demo credentials:
+- **Login Page** - Clean login with "Remember Me" and demo credentials display
+- **Signup Page** - Full registration with form validation
+- **Forgot Password** - Email-based password reset flow
+- **Reset Password** - New password with live requirements validation
+- **Demo Credentials**: `admin@demo.com` / `password123` (works with any email/password)
+- **Protected Routes** - All 30+ dashboard pages secured
+- **Session Management** - LocalStorage persistence with "Remember Me" option
+- **Auto-logout** - From both Header and Sidebar
+- **Beautiful SVG Backgrounds** - Static wave patterns on all auth pages
+
 ## All The Pages
 
-I've built a ton of pages for this thing. Here's what's available:
+I've built 35+ pages for this thing. Here's what's available:
 
-### Main Stuff
+### 🔐 Authentication (Public Routes)
+- **Login** (`/login`) - Sign in with demo credentials
+- **Signup** (`/signup`) - Create new account
+- **Forgot Password** (`/forgot-password`) - Request password reset
+- **Reset Password** (`/reset-password`) - Set new password
+
+### Main Stuff (Protected)
 - **Dashboard** (`/`) - Your main overview page
 - **Analytics** (`/analytics`) - The big one - tracks everything in charts and graphs
 
@@ -70,7 +93,22 @@ I've built a ton of pages for this thing. Here's what's available:
 - **Help Center** (`/help`)
 
 ### Your Stuff
-- **Profile** (`/profile`)
+- **Profile** (`/profile`) - Your personal profile with real details, social links, and skills
+
+## 👤 Profile Features
+
+Complete profile management system:
+- **Personal Details**: Full name, email, phone, location, website
+- **Bio Section**: About yourself
+- **Social Links**: Linktree, GitHub, LinkedIn, X (Twitter)
+- **Skills & Expertise**: 
+  - JavaScript, React.js, React Native
+  - Node.js, Express.js, MongoDB, MySQL
+  - Redux, Python, Django, C
+- **Stats Dashboard**: Projects, tasks, hours, team members
+- **Recent Activity**: Track your actions
+- **Achievements**: Unlockable badges
+- **Editable**: Update everything with built-in forms
 
 ## The Analytics Page
 
@@ -90,11 +128,13 @@ You can filter by time (last week, month, year, whatever) and export everything 
 ## Tech Stack
 
 Nothing fancy, just solid tools:
-- React 19 (the latest one)
-- React Router for navigation
-- SCSS Modules for styling (keeps things organized)
-- React Icons for all the icons
-- Vite for super fast builds
+- **React 19** - The latest version with modern features
+- **React Router v6** - For navigation and routing
+- **React Context API** - Global state management for auth
+- **SCSS Modules** - Component-scoped styling
+- **React Icons** - Beautiful icon library
+- **Vite** - Super fast build tool and dev server
+- **LocalStorage** - Session persistence
 
 ## Getting Started
 
@@ -127,8 +167,39 @@ I kept it simple:
 - Clean black and white with pops of color where needed
 - 2px borders everywhere for better definition
 - Smooth transitions but not overdone
+- **System theme detection** - Auto dark/light mode based on your OS
 - Works great in both light and dark mode
 - Looks good on any screen size
+- Static SVG backgrounds on auth pages (no distracting animations)
+- Form validation with helpful error messages
+- Password visibility toggles on all password fields
+
+## 🚀 Features Highlight
+
+### Authentication & Security
+- ✅ Demo authentication (replace with real API in production)
+- ✅ Protected routes with redirect to login
+- ✅ Session persistence across page refreshes
+- ✅ Remember Me functionality
+- ✅ Forgot password flow
+- ✅ Password reset with requirements validation
+- ✅ Logout from Header and Sidebar
+- ✅ User state management with Context API
+
+### Theme System
+- ✅ Auto-detect system theme (prefers-color-scheme)
+- ✅ Manual toggle override
+- ✅ LocalStorage preference saving
+- ✅ Real-time system theme change listener
+- ✅ Smooth transitions between themes
+
+### User Experience
+- ✅ Form validation on all auth pages
+- ✅ Loading states during auth check
+- ✅ Error messages for invalid inputs
+- ✅ Success states with auto-redirects
+- ✅ Password requirements with live validation
+- ✅ Mobile-responsive design throughout
 
 ## Contributing
 
@@ -136,9 +207,22 @@ If you want to improve something, feel free to fork it and send a PR. Always hap
 
 ## About Me
 
-Hey! I'm Husney. I build stuff with code.
+Hey! I'm Husney Mobarok. Full-stack developer passionate about creating innovative web and mobile applications.
 
-Check out my other work: [husney.vercel.app](https://husney.vercel.app)
+**Skills & Expertise:**
+- 💻 Frontend: JavaScript, React.js, React Native
+- 🌐 Backend: Node.js, Express.js, MongoDB, MySQL
+- 🧰 State Management: Redux
+- 🐍 Additional: Python, C
+- 🌟 Frameworks: Django
+
+**Connect with me:**
+- 🌐 Portfolio: [husney.vercel.app](https://husney.vercel.app)
+- 🔗 Linktree: [linktr.ee/husney_24](https://linktr.ee/husney_24)
+- 💼 LinkedIn: [linkedin.com/in/husney24](https://www.linkedin.com/in/husney24)
+- 🐙 GitHub: [github.com/husney24](https://github.com/husney24)
+- 🐦 X (Twitter): [x.com/husney_24](https://x.com/husney_24)
+- 📍 Location: Kolkata, India
 
 ## License
 

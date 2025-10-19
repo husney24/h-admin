@@ -55,14 +55,14 @@ const Settings = () => {
 
   // Profile Settings
   const [profileData, setProfileData] = useState({
-    fullName: 'Husney',
-    email: 'admin@husney.com',
-    phone: '+1 234 567 8900',
-    bio: 'Full-stack developer and designer passionate about creating beautiful and functional web applications.',
-    location: 'New York, USA',
-    website: 'https://husney.com',
+    fullName: 'Husney Mobarok',
+    email: 'husneymobarok827@gmail.com',
+    phone: '+91 1234567890',
+    bio: 'Full-stack developer passionate about creating innovative web and mobile applications. Experienced in modern web technologies, building scalable solutions from frontend to backend.',
+    location: 'Kolkata, India',
+    website: 'https://husney.vercel.app',
     company: 'Husney Solutions',
-    position: 'CEO & Founder'
+    position: 'Full Stack Developer'
   });
 
   // Password Settings
@@ -97,17 +97,17 @@ const Settings = () => {
   const [appearanceSettings, setAppearanceSettings] = useState({
     theme: 'light',
     language: 'en',
-    timezone: 'UTC-5',
-    dateFormat: 'MM/DD/YYYY',
+    timezone: 'UTC+5:30',
+    dateFormat: 'DD/MM/YYYY',
     timeFormat: '12h'
   });
 
   // Billing Settings
   const [billingData, setbillingData] = useState({
     cardNumber: '**** **** **** 4242',
-    cardHolder: 'Husney',
+    cardHolder: 'Husney Mobarok',
     expiryDate: '12/25',
-    billingAddress: '123 Main St, New York, NY 10001',
+    billingAddress: 'Kolkata, West Bengal, India',
     plan: 'Premium',
     billingCycle: 'monthly'
   });
@@ -781,6 +781,7 @@ const Settings = () => {
                       <option value="UTC-5">UTC-05:00 (EST)</option>
                       <option value="UTC+0">UTC+00:00 (GMT)</option>
                       <option value="UTC+1">UTC+01:00 (CET)</option>
+                      <option value="UTC+5:30">UTC+05:30 (IST)</option>
                       <option value="UTC+8">UTC+08:00 (SGT)</option>
                     </select>
                   </div>

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   FiSearch, 
   FiSun, 
@@ -12,10 +12,13 @@ import {
   FiLogOut,
   FiMenu
 } from 'react-icons/fi';
+import { useAuth } from '../../contexts/AuthContext';
 import LogoutModal from '../LogoutModal/LogoutModal';
 import styles from './Header.module.scss';
 
 const Header = ({ toggleSidebar, isDarkMode, toggleDarkMode }) => {
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [notificationOpen, setNotificationOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
@@ -65,8 +68,9 @@ const Header = ({ toggleSidebar, isDarkMode, toggleDarkMode }) => {
   };
 
   const handleLogoutConfirm = () => {
+    logout();
     setLogoutModalOpen(false);
-    // Add logout logic here (redirect, clear session, etc.)
+    navigate('/login', { replace: true });
   };
 
   return (
@@ -151,8 +155,8 @@ const Header = ({ toggleSidebar, isDarkMode, toggleDarkMode }) => {
               <FiUser />
             </div>
             <div className={styles.profileInfo}>
-              <span className={styles.name}>Husney</span>
-              <span className={styles.role}>Administrator</span>
+              <span className={styles.name}>{user?.name || 'User'}</span>
+              <span className={styles.role}>{user?.role || 'Administrator'}</span>
             </div>
           </button>
 
@@ -162,8 +166,8 @@ const Header = ({ toggleSidebar, isDarkMode, toggleDarkMode }) => {
                 <div className={styles.avatarLarge}>
                   <FiUser />
                 </div>
-                <h4>Husney</h4>
-                <p>admin@husney.com</p>
+                <h4>{user?.name || 'User'}</h4>
+                <p>{user?.email || 'user@email.com'}</p>
               </div>
               <div className={styles.menuDivider}></div>
               <Link to="/profile" className={styles.menuItem} onClick={() => setProfileOpen(false)}>

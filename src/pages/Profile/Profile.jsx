@@ -38,26 +38,27 @@ const Profile = () => {
   const [imagePreview, setImagePreview] = useState(null);
 
   const [profileData, setProfileData] = useState({
-    fullName: 'Husney',
-    email: 'admin@husney.com',
-    phone: '+1 234 567 8900',
-    bio: 'Full-stack developer and designer passionate about creating beautiful and functional web applications. Experienced in React, Node.js, and modern web technologies.',
-    location: 'New York, USA',
-    website: 'https://husney.com',
+    fullName: 'Husney Mobarok',
+    email: 'husneymobarok827@gmail.com',
+    phone: '+91 1234567890',
+    bio: 'Full-stack developer passionate about creating innovative web and mobile applications. Experienced in modern web technologies, building scalable solutions from frontend to backend.',
+    location: 'Kolkata, India',
+    website: 'https://husney.vercel.app',
     company: 'Husney Solutions',
-    position: 'CEO & Founder',
+    position: 'Full Stack Developer',
     joinedDate: 'January 2023',
-    timezone: 'UTC-5 (Eastern Time)',
-    language: 'English'
+    timezone: 'UTC+5:30 (IST)',
+    language: 'English, Hindi'
   });
 
   const [socialLinks, setSocialLinks] = useState({
-    linkedin: 'https://linkedin.com/in/husney',
-    github: 'https://github.com/husney',
-    twitter: 'https://twitter.com/husney',
+    linktree: 'https://linktr.ee/husney_24',
+    linkedin: 'https://www.linkedin.com/in/husney24',
+    github: 'https://github.com/husney24',
+    twitter: 'https://x.com/husney_24',
     facebook: '',
     instagram: '',
-    portfolio: 'https://husney.com'
+    portfolio: 'https://husney.vercel.app'
   });
 
   // Stats
@@ -89,12 +90,17 @@ const Profile = () => {
 
   // Skills
   const skills = [
-    { name: 'React', level: 95 },
+    { name: 'JavaScript', level: 95 },
+    { name: 'React.js', level: 92 },
+    { name: 'React Native', level: 88 },
     { name: 'Node.js', level: 90 },
-    { name: 'TypeScript', level: 85 },
-    { name: 'UI/UX Design', level: 80 },
-    { name: 'Project Management', level: 88 },
-    { name: 'DevOps', level: 75 }
+    { name: 'Express.js', level: 87 },
+    { name: 'MongoDB', level: 85 },
+    { name: 'MySQL', level: 82 },
+    { name: 'Redux', level: 86 },
+    { name: 'Python', level: 80 },
+    { name: 'Django', level: 78 },
+    { name: 'C', level: 75 }
   ];
 
   const handleProfileChange = (e) => {
@@ -386,19 +392,19 @@ const Profile = () => {
             <div className={styles.cardBody}>
               <div className={styles.socialLinks}>
                 <div className={styles.socialItem}>
-                  <FiLinkedin className={styles.linkedin} />
+                  <FiLink className={styles.linktree} />
                   {isEditing ? (
                     <input
                       type="url"
-                      name="linkedin"
-                      value={socialLinks.linkedin}
+                      name="linktree"
+                      value={socialLinks.linktree}
                       onChange={handleSocialChange}
-                      placeholder="LinkedIn URL"
+                      placeholder="Linktree URL"
                     />
                   ) : (
-                    socialLinks.linkedin && (
-                      <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
-                        LinkedIn
+                    socialLinks.linktree && (
+                      <a href={socialLinks.linktree} target="_blank" rel="noopener noreferrer">
+                        Linktree
                       </a>
                     )
                   )}
@@ -424,6 +430,25 @@ const Profile = () => {
                 </div>
 
                 <div className={styles.socialItem}>
+                  <FiLinkedin className={styles.linkedin} />
+                  {isEditing ? (
+                    <input
+                      type="url"
+                      name="linkedin"
+                      value={socialLinks.linkedin}
+                      onChange={handleSocialChange}
+                      placeholder="LinkedIn URL"
+                    />
+                  ) : (
+                    socialLinks.linkedin && (
+                      <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
+                        LinkedIn
+                      </a>
+                    )
+                  )}
+                </div>
+
+                <div className={styles.socialItem}>
                   <FiTwitter className={styles.twitter} />
                   {isEditing ? (
                     <input
@@ -431,12 +456,12 @@ const Profile = () => {
                       name="twitter"
                       value={socialLinks.twitter}
                       onChange={handleSocialChange}
-                      placeholder="Twitter URL"
+                      placeholder="X (Twitter) URL"
                     />
                   ) : (
                     socialLinks.twitter && (
                       <a href={socialLinks.twitter} target="_blank" rel="noopener noreferrer">
-                        Twitter
+                        X (Twitter)
                       </a>
                     )
                   )}

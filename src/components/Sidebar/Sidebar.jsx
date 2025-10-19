@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom'; // ADD THIS IMPORT
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 import LogoutModal from '../LogoutModal/LogoutModal';
 import { 
   FiHome,
@@ -40,7 +41,9 @@ import styles from './Sidebar.module.scss';
 const Sidebar = ({ isOpen, isMobile }) => {
   const [openMenus, setOpenMenus] = useState({});
   const [logoutModalOpen, setLogoutModalOpen] = useState(false);
-  const location = useLocation(); // ADD THIS LINE
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { logout, user } = useAuth();
 
   const toggleMenu = (menuName) => {
     setOpenMenus(prev => ({
@@ -54,8 +57,9 @@ const Sidebar = ({ isOpen, isMobile }) => {
   };
 
   const handleLogoutConfirm = () => {
+    logout();
     setLogoutModalOpen(false);
-    // Add logout logic here (redirect, clear session, etc.)
+    navigate('/login', { replace: true });
   };
 
   const menuItems = [
@@ -175,8 +179,8 @@ const Sidebar = ({ isOpen, isMobile }) => {
             </div>
             {isOpen && (
               <div className={styles.profileInfo}>
-                <h4>Husney</h4>
-                <p>Administrator</p>
+                <h4>{user?.name || 'User'}</h4>
+                <p>{user?.role || 'User'}</p>
               </div>
             )}
           </div>
