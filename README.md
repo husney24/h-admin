@@ -222,7 +222,6 @@ Hey! I'm Husney Mobarok. Full-stack developer passionate about creating innovati
 - 💼 LinkedIn: [linkedin.com/in/husney24](https://www.linkedin.com/in/husney24)
 - 🐙 GitHub: [github.com/husney24](https://github.com/husney24)
 - 🐦 X (Twitter): [x.com/husney_24](https://x.com/husney_24)
-- 📍 Location: Kolkata, India
 
 ## License
 
