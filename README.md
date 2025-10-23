@@ -205,17 +205,6 @@ I kept it simple:
 
 If you want to improve something, feel free to fork it and send a PR. Always happy to see what people come up with.
 
-## About Me
-
-Hey! I'm Husney Mobarok. Full-stack developer passionate about creating innovative web and mobile applications.
-
-**Skills & Expertise:**
-- 💻 Frontend: JavaScript, React.js, React Native
-- 🌐 Backend: Node.js, Express.js, MongoDB, MySQL
-- 🧰 State Management: Redux
-- 🐍 Additional: Python, C
-- 🌟 Frameworks: Django
-
 **Connect with me:**
 - 🌐 Portfolio: [husney.vercel.app](https://husney.vercel.app)
 - 🔗 Linktree: [linktr.ee/husney_24](https://linktr.ee/husney_24)
