@@ -184,6 +184,23 @@
     &::placeholder {
       color: var(--text-secondary);
     }
+
+    // Add more right padding when toggle button is present
+    &[type="password"],
+    &[type="text"]:not([id="email"]):not([id="name"]) {
+      padding-right: 3rem;
+
+      @media (max-width: 768px) {
+        padding-right: 3.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    input {
+      padding: 1rem 1rem 1rem 3rem;
+      font-size: 16px; // Prevents zoom on iOS
+    }
   }
 }
 
@@ -196,6 +213,10 @@
 }
 
 .togglePassword {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
   padding: 0 1rem;
   background: transparent;
   border: none;
@@ -204,10 +225,30 @@
   font-size: 1.1rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   transition: color 0.3s ease;
-
+  min-width: 44px; // Better touch target
+  
   &:hover {
     color: var(--text-primary);
+  }
+
+  // Better mobile touch target
+  @media (max-width: 768px) {
+    padding: 0 1.25rem;
+    font-size: 1.2rem;
+    min-width: 48px; // iOS recommended touch target
+    
+    &:active {
+      background: rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+    }
+  }
+
+  // Extra small screens
+  @media (max-width: 480px) {
+    padding: 0 1rem;
+    min-width: 44px;
   }
 }
 
